@@ -36,12 +36,13 @@ def roll(die):
     results.sort(reverse=True)
     msg = msg + 'You rolled: '+str(results)+'\n'
     msg = msg + 'Successes: '+str(success)+'\n'
-    msg = msg + 'Damage Successes: '+str(damagesuccess)+'\n'
+    msg = msg + 'Damage Successes: '+str(damagesuccesses)+'\n'
     if 1 in results and success == 0:
         msg = msg + 'BOTCH!!!'
     return msg
 
-client = discord.Client()
+intents = discord.Intents.all()
+client = discord.Client(intents=intents)
 
 @client.event
 async def on_message(message):
